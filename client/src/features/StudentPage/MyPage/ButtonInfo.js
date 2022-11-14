@@ -7,6 +7,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { Box } from "@material-ui/core";
 import { ListAlt } from "@material-ui/icons";
+import Axios from "axios";
 
 function ButtonInfo(props) {
   const [open, setOpen] = useState(false);
@@ -20,6 +21,13 @@ function ButtonInfo(props) {
     setOpen(false);
   };
 
+  const handleClickDelete = (e) => {
+    Axios.delete(
+      `http://localhost:3001/api/deletestudentclass?classId=${
+        studentClass.ClassId
+      }&studentId=${localStorage.getItem("id")}`
+    ).then(console.log("delete success"));
+  };
   return (
     <Box>
       <Button
@@ -65,6 +73,14 @@ function ButtonInfo(props) {
           </Button>
         </DialogActions>
       </Dialog>
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={(e) => handleClickDelete(e)}
+        startIcon={<ListAlt />}
+      >
+        Delete
+      </Button>
     </Box>
   );
 }

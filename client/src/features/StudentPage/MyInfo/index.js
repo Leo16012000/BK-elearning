@@ -11,6 +11,7 @@ function MyInfo() {
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/getstudentinfo?id=${id}`).then(
       (response) => {
+        console.log(id, response.data);
         setStudentInfo(response.data);
       }
     );

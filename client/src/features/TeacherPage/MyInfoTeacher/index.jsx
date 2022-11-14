@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { Box } from "@material-ui/core";
+import CardInfo from "./CardInfo";
 
 function MyInfoTeacher() {
   const [teacherInfo, setTeacherInfo] = useState([]);
@@ -18,13 +19,10 @@ function MyInfoTeacher() {
   return (
     <div className="App">
       <h1>Teacher Info</h1>
-      <ul className="teacherInfo">
+      <ul className="teacherInfo" style={{listStyle: 'none'}}>
         {teacherInfo.map((teacher) => (
           <li key={teacher.TeacherId}>
-            <Box>
-              Id: {teacher.TeacherId} | Name: {teacher.TeacherName} | FalcutyID:
-              {teacher.TFacultyId}
-            </Box>
+            <CardInfo teacher={teacher} />
           </li>
         ))}
       </ul>

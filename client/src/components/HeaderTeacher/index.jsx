@@ -3,28 +3,14 @@ import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from "@material-ui/icons/Menu";
-import React, { Component, useEffect } from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
-import { Add, Input } from "@material-ui/icons";
 import { NavLink } from "react-router-dom";
-import TextField from "@material-ui/core/TextField";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import Login from '../Login'
 import {
   Button,
-  Container,
   Dialog,
-  DialogContent,
-  LinearProgress,
 } from "@material-ui/core";
-import Axios from "axios";
-
-const session = {
-  username: "",
-  password: NaN,
-};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header(props) {
+export default function HeaderTeacher(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -59,6 +45,7 @@ export default function Header(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -76,16 +63,12 @@ export default function Header(props) {
             <Button color="inherit">Home</Button>
           </NavLink>
 
-          <NavLink className={classes.link} to="/mypage">
-            <Button color="inherit">My Page</Button>
+          <NavLink className={classes.link} to="/mypageTeacher">
+            <Button color="inherit">Teacher Page</Button>
           </NavLink>
 
-          <NavLink className={classes.link} to="/register">
-            <Button color="inherit">Register</Button>
-          </NavLink>
-
-          <NavLink className={classes.link} to="/myinfo">
-            <Button color="inherit">My Info</Button>
+          <NavLink className={classes.link} to="/MyInfoTeacher">
+            <Button color="inherit">Teacher Info</Button>
           </NavLink>
 
           <a

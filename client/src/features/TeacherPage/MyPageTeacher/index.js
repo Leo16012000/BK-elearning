@@ -4,7 +4,7 @@ import ButtonList from "./ButtonList";
 
 MyPageTeacher.propTypes = {};
 
-function MyPageTeacher(props) {
+function MyPageTeacher() {
   const id = localStorage.getItem("id");
   console.log(id);
   const [teacherClasses, setTeacherClasses] = useState([]);
@@ -14,19 +14,12 @@ function MyPageTeacher(props) {
     Axios.get(`http://localhost:3001/api/getteacherclass?id=${id}`).then(
       (response) => {
         setTeacherClasses(response.data); //okay
+        console.log(teacherClasses)
       }
     );
   }, [id]);
 
-  // const handleClickOpen = (e) => {
-  //   e.stopPropagation();
-  //   setOpen(true);
-  // };
-
-  // const handleClose = (e) => {
-  //   e.stopPropagation();
-  //   setOpen(false);
-  // };
+  console.log(teacherClasses)
 
   return (
     <div>
